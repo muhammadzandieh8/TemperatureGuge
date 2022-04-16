@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="TemperatureGuage.UC_Temperature"
+             xmlns:local="clr-namespace:TemperatureGuage"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+             mc:Ignorable="d" 
+             Name="Temperature"
+             d:DesignHeight="550" d:DesignWidth="150"
+             >
+    <materialDesign:Card Background="Gray" materialDesign:ShadowAssist.ShadowDepth="Depth5" >
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <!--<ProgressBar Grid.Row="0" Value="80" Background="White" Foreground="Red" RenderTransformOrigin="0.5,0.5" Visibility="Hidden" >
+            <ProgressBar.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ProgressBar.RenderTransform>
+        </ProgressBar>-->
+            
+            <Slider      Grid.Row="0" Grid.Column="0"  VerticalAlignment="Stretch" HorizontalAlignment="Center"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Orientation="Vertical" Foreground="Red"   Name="sld" Value="25" />
+            <Rectangle   Grid.Row="0" Grid.Column="0"  VerticalAlignment="Stretch" HorizontalAlignment="Center" Width="40"   >
+                <Rectangle.Fill>
+                    <RadialGradientBrush Opacity="0.1" >
+                        <GradientStop Color="Silver"   Offset="1" />
+                        <GradientStop Color="Silver"        Offset="0" />
+                    </RadialGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Canvas      Grid.Row="0" Grid.Column="1"   Name="details" Height="{Binding Path=Height,ElementName=sld}" HorizontalAlignment="Right" />
+
+            <!--IsSelectionRangeEnabled="True" SelectionStart="30" SelectionEnd="90"-->
+            <!--<Label   Grid.Row="1" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="/TemperatureGuage;component/#NI7SEG" Content="{Binding Path=Value, ElementName=sld }" />-->
+
+            
+            <!--<Ellipse Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left"  VerticalAlignment="Top"    Margin="10" Width="10" Height="10" Fill="Black"/>
+            <Ellipse Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Margin="10" Width="10" Height="10" Fill="Black"/>
+           
+            <Ellipse Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Top"    Margin="10" Width="10" Height="10" Fill="Black"/>
+            <Ellipse Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10" Width="10" Height="10" Fill="Black"/>-->
+        </Grid>
+    </materialDesign:Card>
+</UserControl>

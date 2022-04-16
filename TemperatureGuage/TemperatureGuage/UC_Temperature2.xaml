@@ -1,0 +1,34 @@
+﻿<UserControl mc:Ignorable="d" 
+             Name="Temperature2"
+             x:Class="TemperatureGuage.UC_Temperature2"
+             xmlns:local="clr-namespace:TemperatureGuage"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="550" d:DesignWidth="150" >
+    <materialDesign:Card Background="Gray" materialDesign:ShadowAssist.ShadowDepth="Depth5" >
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Slider      Grid.Row="0" Grid.Column="1"  VerticalAlignment="Stretch" HorizontalAlignment="Center"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Orientation="Vertical" Foreground="Red"   Name="sld" Value="25" />
+            <Rectangle   Grid.Row="0" Grid.Column="1"  VerticalAlignment="Stretch" HorizontalAlignment="Center" Width="40"   >
+                <Rectangle.Fill>
+                    <RadialGradientBrush Opacity="0.1" >
+                        <GradientStop Offset="1" Color="Silver"    />
+                        <GradientStop Offset="0" Color="Silver"    />
+                    </RadialGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Canvas      Grid.Row="0" Grid.Column="2"   Name="details_RightSide" Height="{Binding Path=Height,ElementName=sld}" HorizontalAlignment="Left"   />
+            <Canvas      Grid.Row="0" Grid.Column="0"   Name="details_LeftSide"  Height="{Binding Path=Height,ElementName=sld}" HorizontalAlignment="Right"  />
+        </Grid>
+    </materialDesign:Card>
+</UserControl>
